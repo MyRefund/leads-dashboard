@@ -3,9 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Language" content="en">
-<meta name="google" content="notranslate">
-
 <title>My Refund — Leads Management</title>
 
 <style>
@@ -22,12 +19,11 @@
 body{
   margin:0;
   font-family:"Okta Neue", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--text);
   background:#f9fafb;
+  color:var(--text);
 }
 
-/* ===== HEADER ===== */
-
+/* HEADER */
 .header{
   background:var(--g0);
   color:#fff;
@@ -38,28 +34,22 @@ body{
   max-width:1300px;
   margin:0 auto;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 }
 
 .brand{
   display:flex;
+  gap:14px;
   align-items:center;
-  gap:16px;
 }
 
 .brand img{
-  height:30px;
-}
-
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.15;
+  height:28px;
 }
 
 .brand-text strong{
-  font-size:17px;
+  font-size:16px;
   font-weight:900;
 }
 
@@ -69,8 +59,7 @@ body{
   font-weight:700;
 }
 
-/* ===== NAV TABS ===== */
-
+/* NAV */
 .nav-tabs{
   background:#fff;
   border-bottom:1px solid #e5e7eb;
@@ -98,8 +87,7 @@ body{
   border-bottom:3px solid var(--g1);
 }
 
-/* ===== PAGE WRAPPER ===== */
-
+/* PAGE */
 .page-wrapper{
   max-width:1300px;
   margin:50px auto;
@@ -113,8 +101,7 @@ body{
   margin-bottom:25px;
 }
 
-/* ===== CARDS ===== */
-
+/* CARDS */
 .card-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -135,7 +122,6 @@ body{
   font-weight:900;
   color:var(--g0);
   text-transform:uppercase;
-  letter-spacing:.5px;
 }
 
 .card p{
@@ -145,25 +131,7 @@ body{
   color:var(--g1);
 }
 
-/* ===== BUTTONS ===== */
-
-.primary-btn{
-  background:var(--g0);
-  color:#fff;
-  border:none;
-  border-radius:14px;
-  padding:14px 20px;
-  font-weight:900;
-  font-size:14px;
-  cursor:pointer;
-}
-
-.primary-btn:hover{
-  background:#0b5c42;
-}
-
-/* ===== TABLE ===== */
-
+/* TABLE */
 .table-wrap{
   background:#fff;
   border-radius:var(--radius);
@@ -179,12 +147,9 @@ table{
 th{
   background:var(--g0);
   color:#fff;
-  font-size:13px;
-  font-weight:900;
-  text-align:left;
   padding:18px;
-  text-transform:uppercase;
-  letter-spacing:.5px;
+  font-size:13px;
+  text-align:left;
 }
 
 td{
@@ -197,14 +162,38 @@ tr:hover{
   background:var(--g2);
 }
 
-/* ===== PAGES ===== */
-
-.page{
-  display:none;
+/* BUTTONS */
+.primary-btn{
+  background:var(--g0);
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  padding:12px 18px;
+  font-weight:900;
+  cursor:pointer;
 }
 
-.page.active{
-  display:block;
+.primary-btn:hover{
+  background:#0b5c42;
+}
+
+input, select{
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  font-size:14px;
+  width:100%;
+}
+
+/* PAGES */
+.page{ display:none; }
+.page.active{ display:block; }
+
+.form-grid{
+  display:grid;
+  gap:16px;
+  max-width:500px;
+  margin-bottom:30px;
 }
 
 </style>
@@ -212,7 +201,6 @@ tr:hover{
 
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-inner">
     <div class="brand">
@@ -225,7 +213,6 @@ tr:hover{
   </div>
 </div>
 
-<!-- NAVIGATION -->
 <div class="nav-tabs">
   <div class="nav-inner">
     <div class="nav-tab active" data-page="dashboard">Dashboard</div>
@@ -234,7 +221,6 @@ tr:hover{
   </div>
 </div>
 
-<!-- CONTENT -->
 <div class="page-wrapper">
 
   <!-- DASHBOARD -->
@@ -242,39 +228,24 @@ tr:hover{
     <div class="section-title">Database Overview</div>
 
     <div class="card-grid">
-      <div class="card"><h3>Total Leads</h3><p id="stat-total">0</p></div>
-      <div class="card"><h3>Active</h3><p id="stat-active">0</p></div>
-      <div class="card"><h3>Signed Up</h3><p id="stat-signed">0</p></div>
-      <div class="card"><h3>Removed</h3><p id="stat-removed">0</p></div>
-    </div>
-
-    <div class="section-title">All Leads</div>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>First Name</th>
-            <th>Status</th>
-            <th>Total Emails</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>example@email.com</td>
-            <td>Example</td>
-            <td>Active</td>
-            <td>3</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="card"><h3>Total Leads</h3><p id="stat-total">--</p></div>
+      <div class="card"><h3>Active</h3><p id="stat-active">--</p></div>
+      <div class="card"><h3>Signed Up</h3><p id="stat-signed">--</p></div>
+      <div class="card"><h3>Removed</h3><p id="stat-removed">--</p></div>
     </div>
   </div>
 
   <!-- LISTS -->
   <div class="page" id="page-lists">
-    <div class="section-title">Lists</div>
+    <div class="section-title">Upload New List</div>
+
+    <div class="form-grid">
+      <input type="text" id="list-name" placeholder="List Name (e.g. Drop Offs 27/02)">
+      <input type="file" id="csv-file" accept=".csv">
+      <button class="primary-btn" onclick="uploadList()">Upload CSV</button>
+    </div>
+
+    <div class="section-title">Existing Lists</div>
 
     <div class="table-wrap">
       <table>
@@ -285,11 +256,11 @@ tr:hover{
             <th>Size</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="lists-table">
           <tr>
-            <td>Drop Offs 27/02</td>
-            <td>27/02/2026</td>
-            <td>—</td>
+            <td>Example List</td>
+            <td>--</td>
+            <td>--</td>
           </tr>
         </tbody>
       </table>
@@ -298,7 +269,19 @@ tr:hover{
 
   <!-- CAMPAIGNS -->
   <div class="page" id="page-campaigns">
-    <div class="section-title">Campaigns</div>
+    <div class="section-title">Log New Campaign</div>
+
+    <div class="form-grid">
+      <input type="text" id="campaign-name" placeholder="Campaign Name">
+      <select id="campaign-type">
+        <option value="Email">Email</option>
+        <option value="SMS">SMS</option>
+      </select>
+      <input type="text" id="target-list" placeholder="Target List Name">
+      <button class="primary-btn" onclick="logCampaign()">Log Campaign</button>
+    </div>
+
+    <div class="section-title">Campaign History</div>
 
     <div class="table-wrap">
       <table>
@@ -306,16 +289,16 @@ tr:hover{
           <tr>
             <th>Campaign</th>
             <th>Type</th>
-            <th>Date Sent</th>
+            <th>Date</th>
             <th>Target List</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="campaign-table">
           <tr>
-            <td>March Drop Offs</td>
+            <td>Example Campaign</td>
             <td>Email</td>
-            <td>01/03/2026</td>
-            <td>Drop Offs 27/02</td>
+            <td>--</td>
+            <td>Example List</td>
           </tr>
         </tbody>
       </table>
@@ -332,11 +315,19 @@ tabs.forEach(tab=>{
   tab.addEventListener("click",()=>{
     tabs.forEach(t=>t.classList.remove("active"));
     pages.forEach(p=>p.classList.remove("active"));
-
     tab.classList.add("active");
     document.getElementById("page-"+tab.dataset.page).classList.add("active");
   });
 });
+
+/* Placeholder functions for next step */
+function uploadList(){
+  alert("CSV upload will connect to Google Sheets next.");
+}
+
+function logCampaign(){
+  alert("Campaign logging will connect to Google Sheets next.");
+}
 </script>
 
 </body>
