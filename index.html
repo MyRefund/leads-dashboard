@@ -69,9 +69,38 @@ body{
   font-weight:700;
 }
 
-/* ===== PAGE ===== */
+/* ===== NAV TABS ===== */
 
-.page{
+.nav-tabs{
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.nav-inner{
+  max-width:1300px;
+  margin:0 auto;
+  padding:0 24px;
+  display:flex;
+  gap:30px;
+}
+
+.nav-tab{
+  padding:16px 0;
+  font-weight:900;
+  font-size:14px;
+  cursor:pointer;
+  color:#6b7280;
+  border-bottom:3px solid transparent;
+}
+
+.nav-tab.active{
+  color:var(--g0);
+  border-bottom:3px solid var(--g1);
+}
+
+/* ===== PAGE WRAPPER ===== */
+
+.page-wrapper{
   max-width:1300px;
   margin:50px auto;
   padding:0 24px 80px;
@@ -168,42 +197,14 @@ tr:hover{
   background:var(--g2);
 }
 
-/* ===== MODAL ===== */
+/* ===== PAGES ===== */
 
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.4);
+.page{
   display:none;
-  align-items:center;
-  justify-content:center;
 }
 
-.modal-content{
-  background:#fff;
-  padding:35px;
-  border-radius:var(--radius);
-  width:440px;
-  box-shadow:0 25px 50px rgba(0,0,0,.25);
-}
-
-.modal-content h2{
-  margin-top:0;
-  color:var(--g0);
-  font-weight:900;
-}
-
-.modal-content form{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-}
-
-input,select{
-  padding:14px;
-  border-radius:14px;
-  border:1px solid #e5e7eb;
-  font-size:14px;
+.page.active{
+  display:block;
 }
 
 </style>
@@ -224,108 +225,117 @@ input,select{
   </div>
 </div>
 
-<!-- PAGE CONTENT -->
-<div class="page">
-
-  <div class="section-title">Database Overview</div>
-
-  <div class="card-grid">
-    <div class="card"><h3>Total Leads</h3><p id="stat-total">0</p></div>
-    <div class="card"><h3>Active</h3><p id="stat-active">0</p></div>
-    <div class="card"><h3>Signed Up</h3><p id="stat-signed">0</p></div>
-    <div class="card"><h3>Removed</h3><p id="stat-removed">0</p></div>
+<!-- NAVIGATION -->
+<div class="nav-tabs">
+  <div class="nav-inner">
+    <div class="nav-tab active" data-page="dashboard">Dashboard</div>
+    <div class="nav-tab" data-page="lists">Lists</div>
+    <div class="nav-tab" data-page="campaigns">Campaigns</div>
   </div>
-
-  <button class="primary-btn" onclick="openModal()">Add Lead</button>
-
-  <div style="height:40px"></div>
-
-  <div class="section-title">All Leads</div>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Status</th>
-          <th>Total Emails</th>
-        </tr>
-      </thead>
-      <tbody id="leads-table"></tbody>
-    </table>
-  </div>
-
 </div>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h2>Add Lead</h2>
-    <form id="lead-form">
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="text" id="firstName" placeholder="First Name" required>
-      <input type="text" id="lastName" placeholder="Last Name" required>
-      <select id="status">
-        <option value="Active">Active</option>
-        <option value="Signed Up">Signed Up</option>
-        <option value="Removed">Removed</option>
-      </select>
-      <button class="primary-btn" type="submit">Save Lead</button>
-    </form>
+<!-- CONTENT -->
+<div class="page-wrapper">
+
+  <!-- DASHBOARD -->
+  <div class="page active" id="page-dashboard">
+    <div class="section-title">Database Overview</div>
+
+    <div class="card-grid">
+      <div class="card"><h3>Total Leads</h3><p id="stat-total">0</p></div>
+      <div class="card"><h3>Active</h3><p id="stat-active">0</p></div>
+      <div class="card"><h3>Signed Up</h3><p id="stat-signed">0</p></div>
+      <div class="card"><h3>Removed</h3><p id="stat-removed">0</p></div>
+    </div>
+
+    <div class="section-title">All Leads</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Status</th>
+            <th>Total Emails</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>example@email.com</td>
+            <td>Example</td>
+            <td>Active</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+
+  <!-- LISTS -->
+  <div class="page" id="page-lists">
+    <div class="section-title">Lists</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>List Name</th>
+            <th>Date Uploaded</th>
+            <th>Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Drop Offs 27/02</td>
+            <td>27/02/2026</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CAMPAIGNS -->
+  <div class="page" id="page-campaigns">
+    <div class="section-title">Campaigns</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Campaign</th>
+            <th>Type</th>
+            <th>Date Sent</th>
+            <th>Target List</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>March Drop Offs</td>
+            <td>Email</td>
+            <td>01/03/2026</td>
+            <td>Drop Offs 27/02</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
 
 <script>
-const leads = [];
+const tabs = document.querySelectorAll(".nav-tab");
+const pages = document.querySelectorAll(".page");
 
-function updateStats(){
-  document.getElementById("stat-total").textContent = leads.length;
-  document.getElementById("stat-active").textContent = leads.filter(l=>l.status==="Active").length;
-  document.getElementById("stat-signed").textContent = leads.filter(l=>l.status==="Signed Up").length;
-  document.getElementById("stat-removed").textContent = leads.filter(l=>l.status==="Removed").length;
-}
+tabs.forEach(tab=>{
+  tab.addEventListener("click",()=>{
+    tabs.forEach(t=>t.classList.remove("active"));
+    pages.forEach(p=>p.classList.remove("active"));
 
-function renderLeads(){
-  const table = document.getElementById("leads-table");
-  table.innerHTML="";
-  leads.forEach(l=>{
-    table.innerHTML += `
-      <tr>
-        <td>${l.email}</td>
-        <td>${l.firstName}</td>
-        <td>${l.lastName}</td>
-        <td>${l.status}</td>
-        <td>${l.totalEmails}</td>
-      </tr>`;
+    tab.classList.add("active");
+    document.getElementById("page-"+tab.dataset.page).classList.add("active");
   });
-}
-
-function openModal(){
-  document.getElementById("modal").style.display="flex";
-}
-
-document.getElementById("modal").addEventListener("click",e=>{
-  if(e.target.id==="modal") e.target.style.display="none";
-});
-
-document.getElementById("lead-form").addEventListener("submit",e=>{
-  e.preventDefault();
-
-  leads.push({
-    email:email.value,
-    firstName:firstName.value,
-    lastName:lastName.value,
-    status:status.value,
-    totalEmails:0
-  });
-
-  e.target.reset();
-  document.getElementById("modal").style.display="none";
-
-  updateStats();
-  renderLeads();
 });
 </script>
 
