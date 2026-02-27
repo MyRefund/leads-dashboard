@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Language" content="en">
+<meta name="google" content="notranslate">
+
 <title>My Refund — Leads Management</title>
 
 <style>
@@ -13,36 +16,221 @@
   --text:#111827;
   --radius:16px;
 }
+
 *{box-sizing:border-box}
-body{margin:0;font-family:"Okta Neue",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f9fafb;color:var(--text)}
-.header{background:var(--g0);color:#fff;padding:18px 28px}
-.header-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center}
+
+body{
+  margin:0;
+  font-family:"Okta Neue", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:#f9fafb;
+  color:var(--text);
+}
+
+/* HEADER */
+.header{
+  background:var(--g0);
+  color:#fff;
+  padding:18px 28px;
+}
+
+.header-inner{
+  max-width:1300px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+}
+
 .brand img{height:28px}
-.nav-tabs{background:#fff;border-bottom:1px solid #e5e7eb}
-.nav-inner{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;gap:30px}
-.nav-tab{padding:16px 0;font-weight:900;font-size:14px;cursor:pointer;color:#6b7280;border-bottom:3px solid transparent}
-.nav-tab.active{color:var(--g0);border-bottom:3px solid var(--g1)}
-.page-wrapper{max-width:1300px;margin:50px auto;padding:0 24px 80px}
-.section-title{font-size:20px;font-weight:900;color:var(--g0);margin-bottom:25px}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-bottom:50px}
-.card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 4px 25px rgba(0,0,0,.05)}
-.card h3{margin:0;font-size:13px;font-weight:900;color:var(--g0);text-transform:uppercase}
-.card p{margin:14px 0 0;font-size:34px;font-weight:900;color:var(--g1)}
-.table-wrap{background:#fff;border-radius:var(--radius);box-shadow:0 4px 25px rgba(0,0,0,.05);overflow:hidden}
+
+/* NAV */
+.nav-tabs{
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.nav-inner{
+  max-width:1300px;
+  margin:0 auto;
+  padding:0 24px;
+  display:flex;
+  gap:30px;
+}
+
+.nav-tab{
+  padding:16px 0;
+  font-weight:900;
+  font-size:14px;
+  cursor:pointer;
+  color:#6b7280;
+  border-bottom:3px solid transparent;
+}
+
+.nav-tab.active{
+  color:var(--g0);
+  border-bottom:3px solid var(--g1);
+}
+
+/* PAGE */
+.page-wrapper{
+  max-width:1300px;
+  margin:50px auto;
+  padding:0 24px 80px;
+}
+
+.section-title{
+  font-size:20px;
+  font-weight:900;
+  color:var(--g0);
+  margin-bottom:18px;
+}
+
+/* CARDS */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+  margin-bottom:40px;
+}
+
+.card{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:0 4px 25px rgba(0,0,0,.05);
+}
+
+.card h3{
+  margin:0;
+  font-size:13px;
+  font-weight:900;
+  color:var(--g0);
+  text-transform:uppercase;
+  letter-spacing:.4px;
+}
+
+.card p{
+  margin:14px 0 0;
+  font-size:34px;
+  font-weight:900;
+  color:var(--g1);
+}
+
+/* TABLE */
+.table-wrap{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:0 4px 25px rgba(0,0,0,.05);
+  overflow:hidden;
+}
+
 table{width:100%;border-collapse:collapse}
-th{background:var(--g0);color:#fff;padding:18px;font-size:13px;text-align:left}
-td{padding:18px;border-bottom:1px solid #f1f5f9;font-size:14px}
-.primary-btn{background:var(--g0);color:#fff;border:none;border-radius:14px;padding:12px 18px;font-weight:900;cursor:pointer}
+
+th{
+  background:var(--g0);
+  color:#fff;
+  padding:18px;
+  font-size:13px;
+  font-weight:900;
+  text-align:left;
+  text-transform:uppercase;
+  letter-spacing:.4px;
+}
+
+td{
+  padding:18px;
+  border-bottom:1px solid #f1f5f9;
+  font-size:14px;
+}
+
+tr:hover{background:var(--g2)}
+
+/* FORMS */
+.form-grid{
+  display:grid;
+  gap:14px;
+  max-width:520px;
+  margin-bottom:26px;
+}
+
+input,select{
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid #e5e7eb;
+  font-size:14px;
+  width:100%;
+}
+
+.primary-btn{
+  background:var(--g0);
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  padding:12px 18px;
+  font-weight:900;
+  cursor:pointer;
+}
+
 .primary-btn:hover{background:#0b5c42}
-input,select{padding:12px;border-radius:12px;border:1px solid #e5e7eb;font-size:14px;width:100%}
+
+.secondary-btn{
+  background:#fff;
+  color:var(--g0);
+  border:1px solid var(--g0);
+  border-radius:14px;
+  padding:12px 18px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.secondary-btn:hover{background:var(--g2)}
+
+.row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.row > *{flex:1}
+
+.note{
+  font-size:13px;
+  color:#6b7280;
+  margin-top:6px;
+}
+
+.banner{
+  display:none;
+  padding:14px 16px;
+  border-radius:14px;
+  font-weight:900;
+  margin: 10px 0 22px;
+}
+
+.banner.success{
+  background: #ECFDF5;
+  border:1px solid #BBF7D0;
+  color: var(--g0);
+}
+
+.banner.error{
+  background: #FEF2F2;
+  border:1px solid #FECACA;
+  color: #7F1D1D;
+}
+
 .page{display:none}
 .page.active{display:block}
-.form-grid{display:grid;gap:16px;max-width:500px;margin-bottom:30px}
+
+.small{
+  font-size:12px;
+  color:#6b7280;
+}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <div class="header">
   <div class="header-inner">
     <div class="brand">
@@ -51,6 +239,7 @@ input,select{padding:12px;border-radius:12px;border:1px solid #e5e7eb;font-size:
   </div>
 </div>
 
+<!-- NAV -->
 <div class="nav-tabs">
   <div class="nav-inner">
     <div class="nav-tab active" data-page="dashboard">Dashboard</div>
@@ -64,51 +253,94 @@ input,select{padding:12px;border-radius:12px;border:1px solid #e5e7eb;font-size:
   <!-- DASHBOARD -->
   <div class="page active" id="page-dashboard">
     <div class="section-title">Database Overview</div>
+
+    <div class="banner" id="banner-dashboard"></div>
+
     <div class="card-grid">
-      <div class="card"><h3>Total Leads</h3><p id="stat-total">Loading...</p></div>
-      <div class="card"><h3>Active</h3><p id="stat-active">Loading...</p></div>
-      <div class="card"><h3>Signed Up</h3><p id="stat-signed">Loading...</p></div>
-      <div class="card"><h3>Removed</h3><p id="stat-removed">Loading...</p></div>
+      <div class="card"><h3>Total Leads</h3><p id="stat-total">—</p></div>
+      <div class="card"><h3>Active</h3><p id="stat-active">—</p></div>
+      <div class="card"><h3>Signed Up</h3><p id="stat-signed">—</p></div>
+      <div class="card"><h3>Removed</h3><p id="stat-removed">—</p></div>
     </div>
+
+    <button class="secondary-btn" onclick="loadStats(true)">Refresh</button>
+    <div class="note">Stats are live from Google Sheets.</div>
   </div>
 
   <!-- LISTS -->
   <div class="page" id="page-lists">
-    <div class="section-title">Upload New List</div>
+    <div class="section-title">Upload List (CSV)</div>
+
+    <div class="banner" id="banner-lists"></div>
+
     <div class="form-grid">
-      <input type="text" id="list-name" placeholder="List Name">
-      <select id="channel">
-        <option value="Email">Email</option>
-        <option value="SMS">SMS</option>
-      </select>
-      <input type="file" id="csv-file" accept=".csv">
-      <button class="primary-btn" onclick="uploadList()">Upload CSV</button>
+      <input type="text" id="list-name" placeholder="List Name (e.g. Drop Offs 27/02)" />
+
+      <div class="row">
+        <select id="list-type">
+          <option value="Lead Upload">Lead Upload</option>
+          <option value="Signed Up Import">Signed Up Import</option>
+          <option value="Removal Import">Removal Import</option>
+        </select>
+
+        <select id="channel">
+          <option value="Email">Email</option>
+          <option value="SMS">SMS</option>
+        </select>
+      </div>
+
+      <input type="file" id="csv-file" accept=".csv" />
+
+      <button class="primary-btn" id="btn-upload" onclick="uploadCsv()">Upload</button>
+
+      <div class="small">
+        CSV can be one column (recommended). If it has multiple columns, the system uses the first column only.
+      </div>
     </div>
   </div>
 
   <!-- CAMPAIGNS -->
   <div class="page" id="page-campaigns">
-    <div class="section-title">Log New Campaign</div>
+    <div class="section-title">Log Campaign</div>
+
+    <div class="banner" id="banner-campaigns"></div>
+
     <div class="form-grid">
-      <input type="text" id="campaign-name" placeholder="Campaign Name">
-      <select id="campaign-type">
-        <option value="Email">Email</option>
-        <option value="SMS">SMS</option>
-      </select>
-      <input type="text" id="target-list" placeholder="Target List">
-      <input type="number" id="total-recipients" placeholder="Total Recipients">
-      <button class="primary-btn" onclick="logCampaign()">Log Campaign</button>
+      <input type="text" id="campaign-name" placeholder="Campaign Name (e.g. March Drop Offs)" />
+
+      <div class="row">
+        <select id="campaign-type">
+          <option value="Email">Email</option>
+          <option value="SMS">SMS</option>
+        </select>
+
+        <input type="number" id="total-recipients" placeholder="Total Recipients" min="0" />
+      </div>
+
+      <input type="text" id="target-list" placeholder="Target List Name (optional)" />
+
+      <button class="primary-btn" id="btn-campaign" onclick="logCampaign()">Log Campaign</button>
+
+      <div class="note">
+        Logging a campaign updates send counters and last send dates in the Leads sheet automatically.
+      </div>
     </div>
   </div>
 
 </div>
 
 <script>
+/* =========================
+   CONFIG
+========================= */
 const API_URL = "https://script.google.com/macros/s/AKfycbya6ZUeAB7-HC8ImkkeSy4llDelebL6dhPHEPTQiweiggqz-hIn3oZ-Lus3ANnZcTO42Q/exec";
 
-/* Navigation */
+/* =========================
+   NAV
+========================= */
 const tabs = document.querySelectorAll(".nav-tab");
 const pages = document.querySelectorAll(".page");
+
 tabs.forEach(tab=>{
   tab.addEventListener("click",()=>{
     tabs.forEach(t=>t.classList.remove("active"));
@@ -118,61 +350,184 @@ tabs.forEach(tab=>{
   });
 });
 
-/* Load Stats */
-async function loadStats(){
-  const res = await fetch(API_URL + "?action=stats");
-  const data = await res.json();
-  document.getElementById("stat-total").textContent = data.total;
-  document.getElementById("stat-active").textContent = data.active;
-  document.getElementById("stat-signed").textContent = data.signed;
-  document.getElementById("stat-removed").textContent = data.removed;
+/* =========================
+   UI HELPERS
+========================= */
+function showBanner(id, type, msg){
+  const el = document.getElementById(id);
+  el.className = "banner " + type;
+  el.textContent = msg;
+  el.style.display = "block";
 }
 
-loadStats();
+function hideBanner(id){
+  const el = document.getElementById(id);
+  el.style.display = "none";
+  el.textContent = "";
+  el.className = "banner";
+}
 
-/* CSV Upload */
-function uploadList(){
-  const file = document.getElementById("csv-file").files[0];
-  const listName = document.getElementById("list-name").value;
+function setBusy(buttonId, busy, text){
+  const btn = document.getElementById(buttonId);
+  if(!btn) return;
+  btn.disabled = busy;
+  btn.textContent = busy ? text : btn.getAttribute("data-original") || btn.textContent;
+  if(!btn.getAttribute("data-original")) btn.setAttribute("data-original", btn.textContent);
+}
+
+/* =========================
+   DASHBOARD STATS
+========================= */
+async function loadStats(showMessage){
+  hideBanner("banner-dashboard");
+  try{
+    const res = await fetch(API_URL + "?action=stats", { method:"GET" });
+    const data = await res.json();
+
+    if(data.error) throw new Error(data.error);
+
+    document.getElementById("stat-total").textContent = data.total;
+    document.getElementById("stat-active").textContent = data.active;
+    document.getElementById("stat-signed").textContent = data.signed;
+    document.getElementById("stat-removed").textContent = data.removed;
+
+    if(showMessage){
+      showBanner("banner-dashboard","success","Dashboard updated successfully.");
+    }
+  }catch(err){
+    showBanner("banner-dashboard","error","Could not load stats. " + err.message);
+  }
+}
+
+loadStats(false);
+
+/* =========================
+   CSV PARSER (FIRST COLUMN)
+========================= */
+function parseCsvFirstColumn(text){
+  const lines = text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+
+  // Remove common headers
+  const cleaned = lines.map(l=>{
+    const first = l.split(",")[0].trim().replace(/^"|"$/g,"");
+    return first;
+  }).filter(Boolean);
+
+  // De-dupe within file
+  return Array.from(new Set(cleaned));
+}
+
+/* =========================
+   LIST UPLOAD
+========================= */
+async function uploadCsv(){
+  hideBanner("banner-lists");
+
+  const listName = document.getElementById("list-name").value.trim();
+  const listType = document.getElementById("list-type").value;
   const channel = document.getElementById("channel").value;
+  const file = document.getElementById("csv-file").files[0];
 
-  const reader = new FileReader();
-  reader.onload = async function(e){
-    const lines = e.target.result.split("\n").map(l=>l.trim()).filter(l=>l);
-    await fetch(API_URL,{
+  if(!listName){
+    showBanner("banner-lists","error","Please enter a list name.");
+    return;
+  }
+
+  if(!file){
+    showBanner("banner-lists","error","Please select a CSV file.");
+    return;
+  }
+
+  setBusy("btn-upload", true, "Uploading...");
+
+  try{
+    const text = await file.text();
+    const records = parseCsvFirstColumn(text);
+
+    if(records.length === 0){
+      throw new Error("No valid records found in the CSV.");
+    }
+
+    let action = "uploadList";
+    if(listType === "Signed Up Import") action = "uploadSignedUp";
+    if(listType === "Removal Import") action = "uploadRemoval";
+
+    const res = await fetch(API_URL, {
       method:"POST",
-      body:JSON.stringify({
-        action:"uploadList",
+      body: JSON.stringify({
+        action,
         listName,
         channel,
-        records:lines
+        records
       })
     });
-    alert("List uploaded successfully");
-    loadStats();
-  };
-  reader.readAsText(file);
+
+    const data = await res.json();
+    if(data.error) throw new Error(data.error);
+
+    showBanner(
+      "banner-lists",
+      "success",
+      `Upload complete: ${records.length} records processed as "${listType}" (${channel}).`
+    );
+
+    // Optional refresh of dashboard totals
+    loadStats(false);
+
+    // Clear inputs
+    document.getElementById("csv-file").value = "";
+  }catch(err){
+    showBanner("banner-lists","error","Upload failed. " + err.message);
+  }finally{
+    setBusy("btn-upload", false);
+  }
 }
 
-/* Log Campaign */
+/* =========================
+   CAMPAIGN LOGGING
+========================= */
 async function logCampaign(){
-  const campaignName = document.getElementById("campaign-name").value;
+  hideBanner("banner-campaigns");
+
+  const campaignName = document.getElementById("campaign-name").value.trim();
   const campaignType = document.getElementById("campaign-type").value;
-  const targetList = document.getElementById("target-list").value;
-  const totalRecipients = document.getElementById("total-recipients").value;
+  const totalRecipients = Number(document.getElementById("total-recipients").value || 0);
+  const targetList = document.getElementById("target-list").value.trim();
 
-  await fetch(API_URL,{
-    method:"POST",
-    body:JSON.stringify({
-      action:"logCampaign",
-      campaignName,
-      campaignType,
-      targetList,
-      totalRecipients
-    })
-  });
+  if(!campaignName){
+    showBanner("banner-campaigns","error","Please enter a campaign name.");
+    return;
+  }
 
-  alert("Campaign logged");
+  setBusy("btn-campaign", true, "Logging...");
+
+  try{
+    const res = await fetch(API_URL, {
+      method:"POST",
+      body: JSON.stringify({
+        action:"logCampaign",
+        campaignName,
+        campaignType,
+        targetList,
+        totalRecipients
+      })
+    });
+
+    const data = await res.json();
+    if(data.error) throw new Error(data.error);
+
+    showBanner("banner-campaigns","success","Campaign logged successfully and lead counters updated.");
+    loadStats(false);
+
+    // Clear inputs
+    document.getElementById("campaign-name").value = "";
+    document.getElementById("total-recipients").value = "";
+    document.getElementById("target-list").value = "";
+  }catch(err){
+    showBanner("banner-campaigns","error","Campaign log failed. " + err.message);
+  }finally{
+    setBusy("btn-campaign", false);
+  }
 }
 </script>
 
