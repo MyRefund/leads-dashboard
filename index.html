@@ -13,189 +13,31 @@
   --text:#111827;
   --radius:16px;
 }
-
 *{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:"Okta Neue", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:#f9fafb;
-  color:var(--text);
-}
-
-/* HEADER */
-.header{
-  background:var(--g0);
-  color:#fff;
-  padding:18px 28px;
-}
-
-.header-inner{
-  max-width:1300px;
-  margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.brand{
-  display:flex;
-  gap:14px;
-  align-items:center;
-}
-
-.brand img{
-  height:28px;
-}
-
-.brand-text strong{
-  font-size:16px;
-  font-weight:900;
-}
-
-.brand-text span{
-  font-size:13px;
-  opacity:.85;
-  font-weight:700;
-}
-
-/* NAV */
-.nav-tabs{
-  background:#fff;
-  border-bottom:1px solid #e5e7eb;
-}
-
-.nav-inner{
-  max-width:1300px;
-  margin:0 auto;
-  padding:0 24px;
-  display:flex;
-  gap:30px;
-}
-
-.nav-tab{
-  padding:16px 0;
-  font-weight:900;
-  font-size:14px;
-  cursor:pointer;
-  color:#6b7280;
-  border-bottom:3px solid transparent;
-}
-
-.nav-tab.active{
-  color:var(--g0);
-  border-bottom:3px solid var(--g1);
-}
-
-/* PAGE */
-.page-wrapper{
-  max-width:1300px;
-  margin:50px auto;
-  padding:0 24px 80px;
-}
-
-.section-title{
-  font-size:20px;
-  font-weight:900;
-  color:var(--g0);
-  margin-bottom:25px;
-}
-
-/* CARDS */
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:22px;
-  margin-bottom:50px;
-}
-
-.card{
-  background:#fff;
-  border-radius:var(--radius);
-  padding:28px;
-  box-shadow:0 4px 25px rgba(0,0,0,.05);
-}
-
-.card h3{
-  margin:0;
-  font-size:13px;
-  font-weight:900;
-  color:var(--g0);
-  text-transform:uppercase;
-}
-
-.card p{
-  margin:14px 0 0;
-  font-size:34px;
-  font-weight:900;
-  color:var(--g1);
-}
-
-/* TABLE */
-.table-wrap{
-  background:#fff;
-  border-radius:var(--radius);
-  box-shadow:0 4px 25px rgba(0,0,0,.05);
-  overflow:hidden;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-th{
-  background:var(--g0);
-  color:#fff;
-  padding:18px;
-  font-size:13px;
-  text-align:left;
-}
-
-td{
-  padding:18px;
-  border-bottom:1px solid #f1f5f9;
-  font-size:14px;
-}
-
-tr:hover{
-  background:var(--g2);
-}
-
-/* BUTTONS */
-.primary-btn{
-  background:var(--g0);
-  color:#fff;
-  border:none;
-  border-radius:14px;
-  padding:12px 18px;
-  font-weight:900;
-  cursor:pointer;
-}
-
-.primary-btn:hover{
-  background:#0b5c42;
-}
-
-input, select{
-  padding:12px;
-  border-radius:12px;
-  border:1px solid #e5e7eb;
-  font-size:14px;
-  width:100%;
-}
-
-/* PAGES */
-.page{ display:none; }
-.page.active{ display:block; }
-
-.form-grid{
-  display:grid;
-  gap:16px;
-  max-width:500px;
-  margin-bottom:30px;
-}
-
+body{margin:0;font-family:"Okta Neue",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f9fafb;color:var(--text)}
+.header{background:var(--g0);color:#fff;padding:18px 28px}
+.header-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center}
+.brand img{height:28px}
+.nav-tabs{background:#fff;border-bottom:1px solid #e5e7eb}
+.nav-inner{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;gap:30px}
+.nav-tab{padding:16px 0;font-weight:900;font-size:14px;cursor:pointer;color:#6b7280;border-bottom:3px solid transparent}
+.nav-tab.active{color:var(--g0);border-bottom:3px solid var(--g1)}
+.page-wrapper{max-width:1300px;margin:50px auto;padding:0 24px 80px}
+.section-title{font-size:20px;font-weight:900;color:var(--g0);margin-bottom:25px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-bottom:50px}
+.card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 4px 25px rgba(0,0,0,.05)}
+.card h3{margin:0;font-size:13px;font-weight:900;color:var(--g0);text-transform:uppercase}
+.card p{margin:14px 0 0;font-size:34px;font-weight:900;color:var(--g1)}
+.table-wrap{background:#fff;border-radius:var(--radius);box-shadow:0 4px 25px rgba(0,0,0,.05);overflow:hidden}
+table{width:100%;border-collapse:collapse}
+th{background:var(--g0);color:#fff;padding:18px;font-size:13px;text-align:left}
+td{padding:18px;border-bottom:1px solid #f1f5f9;font-size:14px}
+.primary-btn{background:var(--g0);color:#fff;border:none;border-radius:14px;padding:12px 18px;font-weight:900;cursor:pointer}
+.primary-btn:hover{background:#0b5c42}
+input,select{padding:12px;border-radius:12px;border:1px solid #e5e7eb;font-size:14px;width:100%}
+.page{display:none}
+.page.active{display:block}
+.form-grid{display:grid;gap:16px;max-width:500px;margin-bottom:30px}
 </style>
 </head>
 
@@ -205,10 +47,6 @@ input, select{
   <div class="header-inner">
     <div class="brand">
       <img src="logo.png" alt="My Refund">
-      <div class="brand-text">
-        <strong>Leads Management</strong>
-        <span>Executive Marketing Oversight</span>
-      </div>
     </div>
   </div>
 </div>
@@ -226,91 +64,51 @@ input, select{
   <!-- DASHBOARD -->
   <div class="page active" id="page-dashboard">
     <div class="section-title">Database Overview</div>
-
     <div class="card-grid">
-      <div class="card"><h3>Total Leads</h3><p id="stat-total">--</p></div>
-      <div class="card"><h3>Active</h3><p id="stat-active">--</p></div>
-      <div class="card"><h3>Signed Up</h3><p id="stat-signed">--</p></div>
-      <div class="card"><h3>Removed</h3><p id="stat-removed">--</p></div>
+      <div class="card"><h3>Total Leads</h3><p id="stat-total">Loading...</p></div>
+      <div class="card"><h3>Active</h3><p id="stat-active">Loading...</p></div>
+      <div class="card"><h3>Signed Up</h3><p id="stat-signed">Loading...</p></div>
+      <div class="card"><h3>Removed</h3><p id="stat-removed">Loading...</p></div>
     </div>
   </div>
 
   <!-- LISTS -->
   <div class="page" id="page-lists">
     <div class="section-title">Upload New List</div>
-
     <div class="form-grid">
-      <input type="text" id="list-name" placeholder="List Name (e.g. Drop Offs 27/02)">
+      <input type="text" id="list-name" placeholder="List Name">
+      <select id="channel">
+        <option value="Email">Email</option>
+        <option value="SMS">SMS</option>
+      </select>
       <input type="file" id="csv-file" accept=".csv">
       <button class="primary-btn" onclick="uploadList()">Upload CSV</button>
-    </div>
-
-    <div class="section-title">Existing Lists</div>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>List Name</th>
-            <th>Date Uploaded</th>
-            <th>Size</th>
-          </tr>
-        </thead>
-        <tbody id="lists-table">
-          <tr>
-            <td>Example List</td>
-            <td>--</td>
-            <td>--</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 
   <!-- CAMPAIGNS -->
   <div class="page" id="page-campaigns">
     <div class="section-title">Log New Campaign</div>
-
     <div class="form-grid">
       <input type="text" id="campaign-name" placeholder="Campaign Name">
       <select id="campaign-type">
         <option value="Email">Email</option>
         <option value="SMS">SMS</option>
       </select>
-      <input type="text" id="target-list" placeholder="Target List Name">
+      <input type="text" id="target-list" placeholder="Target List">
+      <input type="number" id="total-recipients" placeholder="Total Recipients">
       <button class="primary-btn" onclick="logCampaign()">Log Campaign</button>
-    </div>
-
-    <div class="section-title">Campaign History</div>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Campaign</th>
-            <th>Type</th>
-            <th>Date</th>
-            <th>Target List</th>
-          </tr>
-        </thead>
-        <tbody id="campaign-table">
-          <tr>
-            <td>Example Campaign</td>
-            <td>Email</td>
-            <td>--</td>
-            <td>Example List</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 
 </div>
 
 <script>
+const API_URL = "https://script.google.com/macros/s/AKfycbya6ZUeAB7-HC8ImkkeSy4llDelebL6dhPHEPTQiweiggqz-hIn3oZ-Lus3ANnZcTO42Q/exec";
+
+/* Navigation */
 const tabs = document.querySelectorAll(".nav-tab");
 const pages = document.querySelectorAll(".page");
-
 tabs.forEach(tab=>{
   tab.addEventListener("click",()=>{
     tabs.forEach(t=>t.classList.remove("active"));
@@ -320,13 +118,61 @@ tabs.forEach(tab=>{
   });
 });
 
-/* Placeholder functions for next step */
-function uploadList(){
-  alert("CSV upload will connect to Google Sheets next.");
+/* Load Stats */
+async function loadStats(){
+  const res = await fetch(API_URL + "?action=stats");
+  const data = await res.json();
+  document.getElementById("stat-total").textContent = data.total;
+  document.getElementById("stat-active").textContent = data.active;
+  document.getElementById("stat-signed").textContent = data.signed;
+  document.getElementById("stat-removed").textContent = data.removed;
 }
 
-function logCampaign(){
-  alert("Campaign logging will connect to Google Sheets next.");
+loadStats();
+
+/* CSV Upload */
+function uploadList(){
+  const file = document.getElementById("csv-file").files[0];
+  const listName = document.getElementById("list-name").value;
+  const channel = document.getElementById("channel").value;
+
+  const reader = new FileReader();
+  reader.onload = async function(e){
+    const lines = e.target.result.split("\n").map(l=>l.trim()).filter(l=>l);
+    await fetch(API_URL,{
+      method:"POST",
+      body:JSON.stringify({
+        action:"uploadList",
+        listName,
+        channel,
+        records:lines
+      })
+    });
+    alert("List uploaded successfully");
+    loadStats();
+  };
+  reader.readAsText(file);
+}
+
+/* Log Campaign */
+async function logCampaign(){
+  const campaignName = document.getElementById("campaign-name").value;
+  const campaignType = document.getElementById("campaign-type").value;
+  const targetList = document.getElementById("target-list").value;
+  const totalRecipients = document.getElementById("total-recipients").value;
+
+  await fetch(API_URL,{
+    method:"POST",
+    body:JSON.stringify({
+      action:"logCampaign",
+      campaignName,
+      campaignType,
+      targetList,
+      totalRecipients
+    })
+  });
+
+  alert("Campaign logged");
 }
 </script>
 
