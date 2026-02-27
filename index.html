@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Language" content="en">
 <meta name="google" content="notranslate">
 
-<title>My Refund — Leads Dashboard</title>
+<title>My Refund — Leads Management</title>
 
 <style>
 :root{
@@ -27,10 +27,11 @@ body{
 }
 
 /* ===== HEADER ===== */
+
 .header{
   background:var(--g0);
   color:#fff;
-  padding:16px 24px;
+  padding:18px 28px;
 }
 
 .header-inner{
@@ -44,11 +45,11 @@ body{
 .brand{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:16px;
 }
 
 .brand img{
-  height:28px;
+  height:30px;
 }
 
 .brand-text{
@@ -58,45 +59,29 @@ body{
 }
 
 .brand-text strong{
-  font-size:16px;
+  font-size:17px;
   font-weight:900;
 }
 
 .brand-text span{
   font-size:13px;
-  opacity:.9;
+  opacity:.85;
   font-weight:700;
-}
-
-.menu{
-  display:flex;
-  gap:10px;
-}
-
-.menu button{
-  border-radius:999px;
-  padding:8px 16px;
-  font-weight:900;
-  font-size:13px;
-  border:1px solid #fff;
-  background:#fff;
-  color:var(--g0);
-  cursor:pointer;
 }
 
 /* ===== PAGE ===== */
 
 .page{
   max-width:1300px;
-  margin:40px auto;
-  padding:0 24px 60px;
+  margin:50px auto;
+  padding:0 24px 80px;
 }
 
 .section-title{
   font-size:20px;
   font-weight:900;
   color:var(--g0);
-  margin-bottom:20px;
+  margin-bottom:25px;
 }
 
 /* ===== CARDS ===== */
@@ -104,27 +89,29 @@ body{
 .card-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  margin-bottom:40px;
+  gap:22px;
+  margin-bottom:50px;
 }
 
 .card{
   background:#fff;
   border-radius:var(--radius);
-  padding:24px;
-  box-shadow:0 4px 20px rgba(0,0,0,.05);
+  padding:28px;
+  box-shadow:0 4px 25px rgba(0,0,0,.05);
 }
 
 .card h3{
   margin:0;
-  font-size:14px;
+  font-size:13px;
   font-weight:900;
   color:var(--g0);
+  text-transform:uppercase;
+  letter-spacing:.5px;
 }
 
 .card p{
-  margin:12px 0 0;
-  font-size:32px;
+  margin:14px 0 0;
+  font-size:34px;
   font-weight:900;
   color:var(--g1);
 }
@@ -136,7 +123,7 @@ body{
   color:#fff;
   border:none;
   border-radius:14px;
-  padding:14px 18px;
+  padding:14px 20px;
   font-weight:900;
   font-size:14px;
   cursor:pointer;
@@ -151,7 +138,7 @@ body{
 .table-wrap{
   background:#fff;
   border-radius:var(--radius);
-  box-shadow:0 4px 20px rgba(0,0,0,.05);
+  box-shadow:0 4px 25px rgba(0,0,0,.05);
   overflow:hidden;
 }
 
@@ -166,11 +153,13 @@ th{
   font-size:13px;
   font-weight:900;
   text-align:left;
-  padding:16px;
+  padding:18px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
 }
 
 td{
-  padding:16px;
+  padding:18px;
   border-bottom:1px solid #f1f5f9;
   font-size:14px;
 }
@@ -192,10 +181,10 @@ tr:hover{
 
 .modal-content{
   background:#fff;
-  padding:30px;
+  padding:35px;
   border-radius:var(--radius);
-  width:420px;
-  box-shadow:0 20px 40px rgba(0,0,0,.2);
+  width:440px;
+  box-shadow:0 25px 50px rgba(0,0,0,.25);
 }
 
 .modal-content h2{
@@ -207,12 +196,12 @@ tr:hover{
 .modal-content form{
   display:flex;
   flex-direction:column;
-  gap:14px;
+  gap:16px;
 }
 
 input,select{
-  padding:12px;
-  border-radius:12px;
+  padding:14px;
+  border-radius:14px;
   border:1px solid #e5e7eb;
   font-size:14px;
 }
@@ -228,14 +217,9 @@ input,select{
     <div class="brand">
       <img src="logo.png" alt="My Refund">
       <div class="brand-text">
-        <strong>Leads Dashboard</strong>
-        <span>Internal Marketing System</span>
+        <strong>Leads Management</strong>
+        <span>Executive Marketing Oversight</span>
       </div>
-    </div>
-
-    <div class="menu">
-      <button onclick="goReports()">Reports</button>
-      <button onclick="goAdmin()">Admin</button>
     </div>
   </div>
 </div>
@@ -243,7 +227,7 @@ input,select{
 <!-- PAGE CONTENT -->
 <div class="page">
 
-  <div class="section-title">Overview</div>
+  <div class="section-title">Database Overview</div>
 
   <div class="card-grid">
     <div class="card"><h3>Total Leads</h3><p id="stat-total">0</p></div>
@@ -254,7 +238,7 @@ input,select{
 
   <button class="primary-btn" onclick="openModal()">Add Lead</button>
 
-  <div style="height:30px"></div>
+  <div style="height:40px"></div>
 
   <div class="section-title">All Leads</div>
 
@@ -343,9 +327,6 @@ document.getElementById("lead-form").addEventListener("submit",e=>{
   updateStats();
   renderLeads();
 });
-
-function goAdmin(){ alert("Admin page coming soon"); }
-function goReports(){ alert("Reports page coming soon"); }
 </script>
 
 </body>
