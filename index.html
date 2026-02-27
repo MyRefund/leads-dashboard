@@ -17,6 +17,7 @@
       color: white;
       height: 100vh;
       padding: 20px;
+      box-sizing: border-box;
     }
 
     .sidebar h2 {
@@ -30,15 +31,33 @@
       text-decoration: none;
       margin: 15px 0;
       font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 6px;
     }
 
     .sidebar a:hover {
       color: white;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .sidebar a.active {
+      color: white;
+      background: rgba(255,255,255,0.14);
     }
 
     .main {
       flex: 1;
       padding: 30px;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
     }
 
     .card-grid {
@@ -81,10 +100,17 @@
       background: #1d4ed8;
     }
 
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 20px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
+      margin-top: 10px;
       background: white;
       border-radius: 8px;
       overflow: hidden;
@@ -101,73 +127,207 @@
     th {
       background: #f1f5f9;
     }
+
+    .hint {
+      color: #64748b;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    input, select {
+      padding: 8px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 13px;
+      background: white;
+    }
   </style>
 </head>
 
 <body>
 
-<div class="sidebar">
-  <h2>Leads System</h2>
-  <a href="#">Dashboard</a>
-  <a href="#">All Leads</a>
-  <a href="#">Lists</a>
-  <a href="#">Campaigns</a>
-  <a href="#">Reports</a>
-</div>
-
-<div class="main">
-
-  <h1>Dashboard</h1>
-
-  <div class="card-grid">
-    <div class="card">
-      <h3>Total Leads</h3>
-      <p>0</p>
-    </div>
-    <div class="card">
-      <h3>Active</h3>
-      <p>0</p>
-    </div>
-    <div class="card">
-      <h3>Signed Up</h3>
-      <p>0</p>
-    </div>
-    <div class="card">
-      <h3>Removed</h3>
-      <p>0</p>
-    </div>
+  <div class="sidebar">
+    <h2>Leads System</h2>
+    <a href="#" class="nav active" data-page="dashboard">Dashboard</a>
+    <a href="#" class="nav" data-page="leads">All Leads</a>
+    <a href="#" class="nav" data-page="lists">Lists</a>
+    <a href="#" class="nav" data-page="campaigns">Campaigns</a>
+    <a href="#" class="nav" data-page="reports">Reports</a>
   </div>
 
-  <div style="margin-bottom:20px;">
-    <button>Add Lead</button>
-    <button>Import List</button>
-    <button>Export Leads</button>
+  <div class="main">
+
+    <!-- DASHBOARD -->
+    <div class="page active" id="page-dashboard">
+      <h1>Dashboard</h1>
+
+      <div class="card-grid">
+        <div class="card"><h3>Total Leads</h3><p id="stat-total">0</p></div>
+        <div class="card"><h3>Active</h3><p id="stat-active">0</p></div>
+        <div class="card"><h3>Signed Up</h3><p id="stat-signed">0</p></div>
+        <div class="card"><h3>Removed</h3><p id="stat-removed">0</p></div>
+      </div>
+
+      <div class="toolbar">
+        <button id="btn-add-lead">Add Lead</button>
+        <button id="btn-import-list">Import List</button>
+        <button id="btn-export">Export Leads</button>
+      </div>
+
+      <h2>Recent Leads</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Total Emails</th>
+            <th>Last Email Date</th>
+          </tr>
+        </thead>
+        <tbody id="recent-leads">
+          <tr>
+            <td>example@email.com</td>
+            <td>Active</td>
+            <td>3</td>
+            <td>27/02/2026</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="hint">
+        Next step: connect this dashboard to Google Sheets via Apps Script.
+      </div>
+    </div>
+
+    <!-- ALL LEADS -->
+    <div class="page" id="page-leads">
+      <h1>All Leads</h1>
+
+      <div class="toolbar">
+        <input id="search" placeholder="Search email / name..." />
+        <select id="filter-status">
+          <option value="">All statuses</option>
+          <option value="Active">Active</option>
+          <option value="Signed Up">Signed Up</option>
+          <option value="Removed">Removed</option>
+        </select>
+        <button id="btn-export-2">Export</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Status</th>
+            <th>Total Emails</th>
+            <th>Last Email Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="leads-table">
+          <tr>
+            <td>example@email.com</td>
+            <td>Example</td>
+            <td>Lead</td>
+            <td>Active</td>
+            <td>3</td>
+            <td>27/02/2026</td>
+            <td><button>Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- LISTS -->
+    <div class="page" id="page-lists">
+      <h1>Lists</h1>
+
+      <div class="toolbar">
+        <button id="btn-new-list">Import New List</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>List Name</th>
+            <th>Type</th>
+            <th>Date Uploaded</th>
+            <th>Size</th>
+          </tr>
+        </thead>
+        <tbody id="lists-table">
+          <tr>
+            <td>Drop Offs 27/02</td>
+            <td>Lead Upload</td>
+            <td>27/02/2026</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CAMPAIGNS -->
+    <div class="page" id="page-campaigns">
+      <h1>Campaigns</h1>
+
+      <div class="toolbar">
+        <button id="btn-add-campaign">Add Campaign</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Campaign</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Target List</th>
+            <th>Audience</th>
+          </tr>
+        </thead>
+        <tbody id="campaigns-table">
+          <tr>
+            <td>Example Campaign</td>
+            <td>Email</td>
+            <td>27/02/2026</td>
+            <td>Drop Offs 27/02</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- REPORTS -->
+    <div class="page" id="page-reports">
+      <h1>Reports</h1>
+      <div class="hint">
+        Conversion, list performance, and marketing stats will appear here once connected.
+      </div>
+    </div>
+
   </div>
 
-  <h2>Recent Leads</h2>
+  <script>
+    const navLinks = document.querySelectorAll(".nav");
+    const pages = document.querySelectorAll(".page");
 
-  <table>
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>Status</th>
-        <th>Total Emails</th>
-        <th>Last Email Date</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>example@email.com</td>
-        <td>Active</td>
-        <td>3</td>
-        <td>27/02/2026</td>
-        <td><button>Edit</button></td>
-      </tr>
-    </tbody>
-  </table>
+    function showPage(pageName) {
+      pages.forEach(p => p.classList.remove("active"));
+      navLinks.forEach(a => a.classList.remove("active"));
 
-</div>
+      document.getElementById("page-" + pageName).classList.add("active");
+      document.querySelector('.nav[data-page="' + pageName + '"]').classList.add("active");
+    }
+
+    navLinks.forEach(a => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        showPage(a.dataset.page);
+      });
+    });
+  </script>
 
 </body>
 </html>
